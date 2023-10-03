@@ -79,7 +79,7 @@ const page = () => {
           video_url: url
         },
         headers: {
-          'X-RapidAPI-Key': '6eab60dbd1mshb3fc9aaa2e46d43p1858bajsncb1d0d099d75',
+          'X-RapidAPI-Key': process.env.NEXT_PUBLIC_RAPID_KEY,
           'X-RapidAPI-Host': 'youtube-audio-video-download.p.rapidapi.com'
         }
       };
