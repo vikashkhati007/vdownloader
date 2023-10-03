@@ -23,27 +23,79 @@ const page = () => {
 
   const getDownload = async () => {
     setText("Please Wait ...");
-    const options = {
-      method: "GET",
-      url: "https://instagram-downloader-download-instagram-videos-stories.p.rapidapi.com/index",
-      params: {
-        url: url,
-      },
-      headers: {
-        "X-RapidAPI-Key": process.env.NEXT_PUBLIC_RAPID_KEY,
-        "X-RapidAPI-Host":
-          "instagram-downloader-download-instagram-videos-stories.p.rapidapi.com",
-      },
-    };
 
-    const response = await axios.request(options);
-    if (response) {
-      sethidden(true);
-      setdownload(response.data.media);
-    } else {
-      console.log("data not fetched");
+    if (url.includes("facebook")) {
+      const FacebookOption = {
+        method: "GET",
+        url: "https://facebook-reel-and-video-downloader.p.rapidapi.com/app/main.php",
+        params: {
+          url: url,
+        },
+        headers: {
+          "X-RapidAPI-Key":
+            "6eab60dbd1mshb3fc9aaa2e46d43p1858bajsncb1d0d099d75",
+          "X-RapidAPI-Host":
+            "facebook-reel-and-video-downloader.p.rapidapi.com",
+        },
+      };
+
+      const fbresponse = await axios.request(FacebookOption);
+      if (fbresponse) {
+        sethidden(true);
+        setdownload(fbresponse.data.links["Download High Quality"]);
+      } else {
+        console.log("data not fetched");
+      }
     }
+
+    if (url.includes("instagram")) {
+      const InstagramOptions = {
+        method: "GET",
+        url: "https://instagram-downloader-download-instagram-videos-stories.p.rapidapi.com/index",
+        params: {
+          url: url,
+        },
+        headers: {
+          "X-RapidAPI-Key": process.env.NEXT_PUBLIC_RAPID_KEY,
+          "X-RapidAPI-Host":
+            "instagram-downloader-download-instagram-videos-stories.p.rapidapi.com",
+        },
+      };
+
+      const instaresponse = await axios.request(InstagramOptions);
+      if (instaresponse) {
+        sethidden(true);
+        setdownload(instaresponse.data.media);
+      } else {
+        console.log("data not fetched");
+      }
+    }
+
+    if (url.includes("youtube")) {
+      const options = {
+        method: 'GET',
+        url: 'https://youtube-audio-video-download.p.rapidapi.com/geturl',
+        params: {
+          video_url: url
+        },
+        headers: {
+          'X-RapidAPI-Key': '6eab60dbd1mshb3fc9aaa2e46d43p1858bajsncb1d0d099d75',
+          'X-RapidAPI-Host': 'youtube-audio-video-download.p.rapidapi.com'
+        }
+      };
+      
+        const response = await axios.request(options);
+        if (response) {
+          sethidden(true);
+          console.log(response.data);
+        } else {
+          console.log("data not fetched");
+        }
+     
+    }
+
   };
+  
 
   return (
     <div className="w-full h-screen flex flex-col gap-2 justify-center items-center bg-red-500">
@@ -53,7 +105,7 @@ const page = () => {
         {!hidden ? (
           <Button onclick={getDownload} text={text} />
         ) : (
-          <Link href={download}>
+          <Link download={download} href={download}>
             <Button text={"DOWNLOAD"} />
           </Link>
         )}
