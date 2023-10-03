@@ -21,6 +21,10 @@ const page = () => {
     setUrl(e.target.value);
   };
 
+  if(url === ""){
+    return setText("Wroung URL")
+  }
+
   const getDownload = async () => {
     setText("Please Wait ...");
 
