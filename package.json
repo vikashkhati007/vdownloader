@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "axios": "^1.5.1",
-    "next": "latest",
+    "next": "^13.5.4",
     "react": "latest",
     "react-dom": "latest"
   },
