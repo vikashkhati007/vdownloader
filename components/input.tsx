@@ -2,10 +2,10 @@ const Input = ({ onChange, value }: any) => {
   return (
     <div className="flex flex-col w-full justify-center gap-10 items-center">
       <div className="flex flex-col gap-2 w-[90%]">
-        <label className="text-[1.4rem] sm:text-2xl border text-center m-auto bg-red-500 rounded-md p-2 font-semibold text-white">
+        <label className="text-[1.4rem] sm:text-2xl border text-center m-auto bg-[#D80032] rounded-md p-2 font-semibold text-white">
           Enter Your URL Here
         </label>
-        <p className="text-black text-opacity-70 text-[10px] sm:text-xs m-auto">
+        <p className="text-black opacity-70 text-[10px] sm:text-xs m-auto">
           Support Platform - Youtube | Instagram | Facebook
         </p>
       </div>
