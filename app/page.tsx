@@ -68,7 +68,7 @@ const Page = () => {
       } else {
         console.log("data not fetched");
       }
-    } else if (url.includes("youtu.be")) {
+    } else if (url.includes("youtu.be") || url.includes("youtube")) {
       const encodedParams = new URLSearchParams();
       encodedParams.set("url", url);
 
