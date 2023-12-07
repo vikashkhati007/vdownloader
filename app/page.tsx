@@ -34,7 +34,7 @@ const Page = () => {
         },
         headers: {
           "X-RapidAPI-Key":
-            "6eab60dbd1mshb3fc9aaa2e46d43p1858bajsncb1d0d099d75",
+            process.env.NEXT_PUBLIC_RAPID_KEY,
           "X-RapidAPI-Host":
             "facebook-reel-and-video-downloader.p.rapidapi.com",
         },
